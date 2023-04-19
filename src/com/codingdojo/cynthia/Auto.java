@@ -1,6 +1,6 @@
 package com.codingdojo.cynthia;
 
-public class Auto extends Vehiculo {
+public class Auto extends Vehiculo implements ManejarVehiculo, HacerPirueta {
 
 	private String placas;
 	
@@ -11,6 +11,7 @@ public class Auto extends Vehiculo {
 	
 	/*Polimorfismo: tener el mismo método a través de clases PERO con distintos comportamientos*/
 	public void imprimir() {
+		super.imprimir();
 		System.out.println("El auto es del anio:"+this.anio+" Placas:"+this.placas);
 	}
 
@@ -22,6 +23,16 @@ public class Auto extends Vehiculo {
 		this.placas = placas;
 	}
 	
+	public void acelerar() {
+		System.out.println("Voy a acelerar");
+		this.velocidad += aumento;
+		System.out.println("Mi velocidad es:"+this.velocidad);
+	}
 	
+	public void desacelerar() {
+		System.out.println("Voy a bajar mi velocidad");
+		this.velocidad -= aumento;
+		System.out.println("Mi velocidad es:"+this.velocidad);
+	}
 	
 }
